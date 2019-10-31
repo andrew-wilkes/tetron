@@ -1,4 +1,4 @@
-# Technical Design Document.
+# Technical Design Document
 
 ## Timers
 
