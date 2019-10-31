@@ -49,7 +49,7 @@ The game will be driven by events from user input or timers.
     Rotate pressed
         Try to rotate
 
-    Down just pressed or Level-up timer expired
+    Down just pressed
         Set ticker period to soft drop speed
 
     Down released
@@ -58,7 +58,7 @@ The game will be driven by events from user input or timers.
     Space just pressed
         Set ticker period to hard drop speed
 
-    Page Up pressed
+    Page Up pressed or Level-up timer expired
         Increase level if not max
 
     Pause pressed
