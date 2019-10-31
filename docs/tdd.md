@@ -8,6 +8,8 @@ period = 1 / level
 
 Have a keyboard repeat delay timer (repeater) for moving when a key is held down.
 
+Level up timer. Periodically increase the level until max level.
+
 ## State
 
 The game will be *stopped* or *playing* (*paused* or *not paused*).
@@ -46,17 +48,14 @@ The game will be driven by events from user input or timers.
     Rotate pressed
         Try to rotate
 
-    Down pressed
+    Down just pressed
         Set ticker period to soft drop speed
 
     Down released
         Reset ticker period
 
-    Space pressed
+    Space just pressed
         Set ticker period to hard drop speed
-
-    Down released
-        Reset ticker period
 
     Page Up pressed
         Increase level if not max
