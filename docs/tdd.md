@@ -28,6 +28,7 @@ The game will be driven by events from user input or timers.
     Ticker ticked
         Try to move shape down
         If stuck:
+            Add shape to grid
             Check lines
             Remove lines
             Update score
