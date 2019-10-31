@@ -49,7 +49,7 @@ The game will be driven by events from user input or timers.
     Rotate pressed
         Try to rotate
 
-    Down just pressed
+    Down just pressed or Level-up timer expired
         Set ticker period to soft drop speed
 
     Down released
