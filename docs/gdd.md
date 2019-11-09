@@ -16,6 +16,7 @@ The game mechanics and shapes will be based on the classic Tetris game as descri
 * New Game button
 * Pause button
 * Music On/Off button
+* About button - pop's up a window to show the above info. about the game controls
 
 ## Scene Elements
 
