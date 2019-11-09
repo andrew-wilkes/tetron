@@ -38,6 +38,8 @@ Pause button.
 
 Music On/Off button.
 
+About button.
+
 ## Shapes
 
 These will be textures arranged in a grid that have a grid map, color, and a probability of occurence.
