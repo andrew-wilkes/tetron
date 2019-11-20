@@ -1,10 +1,12 @@
-extends PanelContainer
+extends CenterContainer
 
 var grid
 var next
 
 const CELL_BG1 = Color(.1, .1, .1)
 const CELL_BG2 = Color(0)
+
+signal button_pressed(button_name)
 
 func _ready():
 	grid = find_node("Grid")
@@ -22,3 +24,16 @@ func add_cells(node, n):
 func clear_cells(node, color):
 	for cell in node.get_children():
 		cell.modulate = color
+
+func _on_About_button_down():
+	$AboutBox.popup_centered()
+	emit_signal("button_pressed", "About")
+
+func _on_NewGame_button_down():
+	emit_signal("button_pressed", "NewGame")
+
+func _on_Pause_button_down():
+	emit_signal("button_pressed", "Pause")
+
+func _on_Music_button_down():
+	emit_signal("button_pressed", "Music")

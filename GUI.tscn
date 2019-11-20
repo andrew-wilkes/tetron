@@ -3,36 +3,39 @@
 [ext_resource path="res://GUI.gd" type="Script" id=1]
 [ext_resource path="res://tile.png" type="Texture" id=2]
 
-[node name="GUI" type="PanelContainer"]
-editor/display_folded = true
+[node name="GUI" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -674.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
 editor/display_folded = true
+margin_left = 125.0
+margin_top = 324.0
+margin_right = 475.0
+margin_bottom = 699.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 343.0
-margin_bottom = 593.0
+margin_bottom = 368.0
 size_flags_horizontal = 0
 
-[node name="Left" type="CenterContainer" parent="HBoxContainer"]
+[node name="Left" type="CenterContainer" parent="Panel/HBoxContainer"]
 margin_right = 200.0
-margin_bottom = 586.0
+margin_bottom = 361.0
 rect_min_size = Vector2( 200, 0 )
 
-[node name="VBox" type="VBoxContainer" parent="HBoxContainer/Left"]
+[node name="VBox" type="VBoxContainer" parent="Panel/HBoxContainer/Left"]
 margin_left = 33.0
-margin_top = 112.0
 margin_right = 167.0
-margin_bottom = 473.0
+margin_bottom = 361.0
 custom_constants/separation = 20
 
-[node name="Statistics" type="GridContainer" parent="HBoxContainer/Left/VBox"]
+[node name="Statistics" type="GridContainer" parent="Panel/HBoxContainer/Left/VBox"]
 editor/display_folded = true
 margin_right = 134.0
 margin_bottom = 74.0
@@ -40,62 +43,62 @@ custom_constants/vseparation = 6
 custom_constants/hseparation = 10
 columns = 2
 
-[node name="_HighScore" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="_HighScore" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_right = 68.0
 margin_bottom = 14.0
 text = "High score"
 
-[node name="HighScore" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="HighScore" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_left = 78.0
 margin_right = 134.0
 margin_bottom = 14.0
 text = "8888888"
 
-[node name="_Level" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="_Level" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_top = 20.0
 margin_right = 68.0
 margin_bottom = 34.0
 text = "Level"
 
-[node name="Level" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="Level" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_left = 78.0
 margin_top = 20.0
 margin_right = 134.0
 margin_bottom = 34.0
 text = "1"
 
-[node name="_Score" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="_Score" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_top = 40.0
 margin_right = 68.0
 margin_bottom = 54.0
 text = "Score"
 
-[node name="Score" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="Score" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_left = 78.0
 margin_top = 40.0
 margin_right = 134.0
 margin_bottom = 54.0
 text = "0"
 
-[node name="_Lines" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="_Lines" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_top = 60.0
 margin_right = 68.0
 margin_bottom = 74.0
 text = "Lines"
 
-[node name="Lines" type="Label" parent="HBoxContainer/Left/VBox/Statistics"]
+[node name="Lines" type="Label" parent="Panel/HBoxContainer/Left/VBox/Statistics"]
 margin_left = 78.0
 margin_top = 60.0
 margin_right = 134.0
 margin_bottom = 74.0
 text = "0"
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Left/VBox"]
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 94.0
 margin_right = 134.0
 margin_bottom = 201.0
 
-[node name="Next" type="GridContainer" parent="HBoxContainer/Left/VBox/CenterContainer"]
+[node name="Next" type="GridContainer" parent="Panel/HBoxContainer/Left/VBox/CenterContainer"]
 editor/display_folded = true
 margin_left = 40.0
 margin_right = 93.0
@@ -104,115 +107,133 @@ custom_constants/vseparation = 1
 custom_constants/hseparation = 1
 columns = 2
 
-[node name="Cell" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_right = 26.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
 
-[node name="Cell2" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell2" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_left = 27.0
 margin_right = 53.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
 
-[node name="Cell3" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell3" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_top = 27.0
 margin_right = 26.0
 margin_bottom = 53.0
 texture = ExtResource( 2 )
 
-[node name="Cell4" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell4" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_left = 27.0
 margin_top = 27.0
 margin_right = 53.0
 margin_bottom = 53.0
 texture = ExtResource( 2 )
 
-[node name="Cell5" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell5" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_top = 54.0
 margin_right = 26.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
 
-[node name="Cell6" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell6" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_left = 27.0
 margin_top = 54.0
 margin_right = 53.0
 margin_bottom = 80.0
 texture = ExtResource( 2 )
 
-[node name="Cell7" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell7" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_top = 81.0
 margin_right = 26.0
 margin_bottom = 107.0
 texture = ExtResource( 2 )
 
-[node name="Cell8" type="TextureRect" parent="HBoxContainer/Left/VBox/CenterContainer/Next"]
+[node name="Cell8" type="TextureRect" parent="Panel/HBoxContainer/Left/VBox/CenterContainer/Next"]
 margin_left = 27.0
 margin_top = 81.0
 margin_right = 53.0
 margin_bottom = 107.0
 texture = ExtResource( 2 )
 
-[node name="NewGame" type="Button" parent="HBoxContainer/Left/VBox"]
+[node name="NewGame" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 221.0
 margin_right = 134.0
 margin_bottom = 241.0
 text = "New Game"
 
-[node name="Pause" type="Button" parent="HBoxContainer/Left/VBox"]
+[node name="Pause" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 261.0
 margin_right = 134.0
 margin_bottom = 281.0
 text = "Pause"
 
-[node name="Music" type="Button" parent="HBoxContainer/Left/VBox"]
+[node name="Music" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 301.0
 margin_right = 134.0
 margin_bottom = 321.0
 text = "Music On/Off"
 
-[node name="About" type="Button" parent="HBoxContainer/Left/VBox"]
+[node name="About" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 341.0
 margin_right = 134.0
 margin_bottom = 361.0
 text = "About"
 
-[node name="Right" type="MarginContainer" parent="HBoxContainer"]
+[node name="Right" type="MarginContainer" parent="Panel/HBoxContainer"]
 margin_left = 204.0
 margin_right = 336.0
-margin_bottom = 586.0
+margin_bottom = 361.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
-[node name="Grid" type="GridContainer" parent="HBoxContainer/Right"]
+[node name="Grid" type="GridContainer" parent="Panel/HBoxContainer/Right"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 124.0
-margin_bottom = 578.0
+margin_bottom = 353.0
 columns = 10
 
-[node name="Cell" type="TextureRect" parent="HBoxContainer/Right/Grid"]
+[node name="Cell" type="TextureRect" parent="Panel/HBoxContainer/Right/Grid"]
 margin_right = 26.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
 
-[node name="Cell2" type="TextureRect" parent="HBoxContainer/Right/Grid"]
+[node name="Cell2" type="TextureRect" parent="Panel/HBoxContainer/Right/Grid"]
 margin_left = 30.0
 margin_right = 56.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
 
-[node name="Cell3" type="TextureRect" parent="HBoxContainer/Right/Grid"]
+[node name="Cell3" type="TextureRect" parent="Panel/HBoxContainer/Right/Grid"]
 margin_left = 60.0
 margin_right = 86.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
 
-[node name="Cell4" type="TextureRect" parent="HBoxContainer/Right/Grid"]
+[node name="Cell4" type="TextureRect" parent="Panel/HBoxContainer/Right/Grid"]
 margin_left = 90.0
 margin_right = 116.0
 margin_bottom = 26.0
 texture = ExtResource( 2 )
+
+[node name="AboutBox" type="AcceptDialog" parent="."]
+margin_left = 168.0
+margin_top = 432.0
+margin_right = 431.0
+margin_bottom = 592.0
+window_title = "Tetron"
+dialog_text = "Space bar - Hard drop
+Down arrow - Soft drop
+Left arrow - move left
+Right arrow - move right
+Up arrow - rotate clockwise
+Shift + Up arrow - rotate anti-clockwise
+Page Up - increase level on each press"
+[connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/NewGame" to="." method="_on_NewGame_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Pause" to="." method="_on_Pause_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Music" to="." method="_on_Music_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/About" to="." method="_on_About_button_down"]
