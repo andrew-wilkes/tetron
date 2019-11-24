@@ -1,0 +1,518 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tile.png" type="Texture" id=1]
+
+[node name="Shapes" type="GridContainer"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="L" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0.870588, 0.509804, 0, 1 )
+margin_right = 86.0
+margin_bottom = 86.0
+columns = 3
+
+[node name="BlankCell" type="TextureRect" parent="L"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="L"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell" type="TextureRect" parent="L"]
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="L"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="L"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="L"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="L"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="L"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="L"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="J" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0, 0.196078, 0.870588, 1 )
+margin_left = 106.0
+margin_right = 192.0
+margin_bottom = 86.0
+columns = 3
+
+[node name="Cell" type="TextureRect" parent="J"]
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell" type="TextureRect" parent="J"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="J"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="J"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="J"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="J"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="J"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="J"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="J"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="S" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0, 0.792157, 0.0313726, 1 )
+margin_left = 212.0
+margin_right = 328.0
+margin_bottom = 86.0
+columns = 3
+
+[node name="BlankCell" type="TextureRect" parent="S"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell" type="TextureRect" parent="S"]
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="S"]
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="S"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="S"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="S"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="S"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="S"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="S"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="Z" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0.792157, 0, 0, 1 )
+margin_top = 106.0
+margin_right = 86.0
+margin_bottom = 222.0
+columns = 3
+
+[node name="Cell" type="TextureRect" parent="Z"]
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="Z"]
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell" type="TextureRect" parent="Z"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="Z"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="Z"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="Z"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="Z"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="Z"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="Z"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="T" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0.619608, 0, 0.815686, 1 )
+margin_left = 106.0
+margin_top = 106.0
+margin_right = 192.0
+margin_bottom = 222.0
+columns = 3
+
+[node name="BlankCell" type="TextureRect" parent="T"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell" type="TextureRect" parent="T"]
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="T"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="T"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="T"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="T"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="T"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="T"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="T"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="I" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0, 0.815686, 0.756863, 1 )
+margin_left = 212.0
+margin_top = 106.0
+margin_right = 328.0
+margin_bottom = 222.0
+columns = 4
+
+[node name="BlankCell" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell2" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell3" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell4" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 90.0
+margin_right = 116.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell" type="TextureRect" parent="I"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="I"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="I"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 86.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="I"]
+margin_left = 90.0
+margin_top = 30.0
+margin_right = 116.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell5" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 60.0
+margin_right = 26.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell6" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell7" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 86.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell8" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 116.0
+margin_bottom = 86.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell9" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 90.0
+margin_right = 26.0
+margin_bottom = 116.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell10" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 90.0
+margin_right = 56.0
+margin_bottom = 116.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell11" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 90.0
+margin_right = 86.0
+margin_bottom = 116.0
+texture = ExtResource( 1 )
+
+[node name="BlankCell12" type="TextureRect" parent="I"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 90.0
+margin_top = 90.0
+margin_right = 116.0
+margin_bottom = 116.0
+texture = ExtResource( 1 )
+
+[node name="C" type="GridContainer" parent="."]
+editor/display_folded = true
+modulate = Color( 0.870588, 0.835294, 0, 1 )
+margin_top = 242.0
+margin_right = 86.0
+margin_bottom = 298.0
+columns = 2
+
+[node name="Cell" type="TextureRect" parent="C"]
+margin_right = 26.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell2" type="TextureRect" parent="C"]
+margin_left = 30.0
+margin_right = 56.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+
+[node name="Cell3" type="TextureRect" parent="C"]
+margin_top = 30.0
+margin_right = 26.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
+
+[node name="Cell4" type="TextureRect" parent="C"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 56.0
+texture = ExtResource( 1 )
