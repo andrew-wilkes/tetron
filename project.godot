@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Tetron"
 config/icon="res://icon.png"
 
+[autoload]
+
+Shapes="*res://Shapes.tscn"
+
 [display]
 
 window/size/width=600

@@ -2,6 +2,7 @@ extends Control
 
 class_name ShapeData
 
+# warning-ignore:unused_class_variable
 var color: Color
 var grid: Array
 var coors: Array
