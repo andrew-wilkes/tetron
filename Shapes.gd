@@ -15,6 +15,7 @@ func get_shape() -> ShapeData:
 	s.grid = _shapes[_index].grid
 	return s
 
+
 func _ready():
 	for shape in get_children():
 		var data = ShapeData.new()
@@ -31,7 +32,8 @@ func _ready():
 		print(data.coors) # For testing purposes
 		data.grid = _get_grid(size, shape.get_children())
 		_shapes.append(data) 
-		
+
+
 func _get_grid(n, cells):
 	var grid = []
 	var row = []

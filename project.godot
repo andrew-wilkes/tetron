@@ -30,7 +30,7 @@ Shapes="*res://Shapes.tscn"
 [display]
 
 window/size/width=600
-window/size/height=1024
+window/size/height=800
 window/handheld/orientation="portrait"
 
 [rendering]
