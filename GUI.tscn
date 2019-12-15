@@ -237,3 +237,4 @@ Page Up - increase level on each press"
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Pause" to="." method="_on_Pause_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Music" to="." method="_on_Music_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/About" to="." method="_on_About_button_down"]
+[connection signal="popup_hide" from="AboutBox" to="." method="_on_AboutBox_popup_hide"]

@@ -43,3 +43,22 @@ func _on_Pause_button_down():
 
 func _on_Music_button_down():
 	emit_signal("button_pressed", "Music")
+
+
+func set_button_state(button, state):
+	find_node(button).set_disabled(state)
+
+
+func set_button_text(button, text):
+	find_node(button).set_text(text)
+
+
+func _on_AboutBox_popup_hide():
+	set_button_state("About", false)
+
+
+func set_button_states(playing):
+	set_button_state("NewGame", playing)
+	set_button_state("About", playing)
+	set_button_state("Pause", !playing)
+
