@@ -6,33 +6,36 @@
 [node name="GUI" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -2.84399
+margin_top = 8.5321
+margin_right = -2.84399
+margin_bottom = 8.5321
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 1 )
 
 [node name="Panel" type="PanelContainer" parent="."]
-editor/display_folded = true
 margin_left = 125.0
-margin_top = 212.0
+margin_top = 172.0
 margin_right = 475.0
-margin_bottom = 587.0
+margin_bottom = 627.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 343.0
-margin_bottom = 368.0
+margin_bottom = 448.0
 size_flags_horizontal = 0
 
 [node name="Left" type="CenterContainer" parent="Panel/HBoxContainer"]
 margin_right = 200.0
-margin_bottom = 361.0
+margin_bottom = 441.0
 rect_min_size = Vector2( 200, 0 )
 
 [node name="VBox" type="VBoxContainer" parent="Panel/HBoxContainer/Left"]
 margin_left = 33.0
 margin_right = 167.0
-margin_bottom = 361.0
+margin_bottom = 441.0
 custom_constants/separation = 20
 
 [node name="Statistics" type="GridContainer" parent="Panel/HBoxContainer/Left/VBox"]
@@ -169,22 +172,28 @@ margin_right = 134.0
 margin_bottom = 281.0
 text = "Pause"
 
-[node name="Music" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
+[node name="Music" type="CheckButton" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 301.0
 margin_right = 134.0
-margin_bottom = 321.0
-text = "Music On/Off"
+margin_bottom = 341.0
+text = "Music"
+
+[node name="Sound" type="CheckButton" parent="Panel/HBoxContainer/Left/VBox"]
+margin_top = 361.0
+margin_right = 134.0
+margin_bottom = 401.0
+text = "Sound"
 
 [node name="About" type="Button" parent="Panel/HBoxContainer/Left/VBox"]
-margin_top = 341.0
+margin_top = 421.0
 margin_right = 134.0
-margin_bottom = 361.0
+margin_bottom = 441.0
 text = "About"
 
 [node name="Right" type="MarginContainer" parent="Panel/HBoxContainer"]
 margin_left = 204.0
 margin_right = 336.0
-margin_bottom = 361.0
+margin_bottom = 441.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -194,7 +203,7 @@ custom_constants/margin_bottom = 8
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 124.0
-margin_bottom = 353.0
+margin_bottom = 433.0
 columns = 10
 
 [node name="Cell" type="TextureRect" parent="Panel/HBoxContainer/Right/Grid"]
@@ -235,6 +244,7 @@ Shift + Up arrow - rotate anti-clockwise
 Page Up - increase level on each press"
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/NewGame" to="." method="_on_NewGame_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Pause" to="." method="_on_Pause_button_down"]
-[connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/Music" to="." method="_on_Music_button_down"]
+[connection signal="pressed" from="Panel/HBoxContainer/Left/VBox/Music" to="." method="_on_Music_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Left/VBox/Sound" to="." method="_on_Sound_pressed"]
 [connection signal="button_down" from="Panel/HBoxContainer/Left/VBox/About" to="." method="_on_About_button_down"]
 [connection signal="popup_hide" from="AboutBox" to="." method="_on_AboutBox_popup_hide"]
