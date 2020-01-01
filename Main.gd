@@ -4,6 +4,7 @@ enum { STOPPED, PLAYING, PAUSED, STOP, PLAY, PAUSE }
 
 const DISABLED = true
 const ENABLED = false
+const MIN_AUDIO_LEVEL = -24
 
 var gui
 var state = STOPPED
@@ -34,14 +35,18 @@ func _button_pressed(button_name):
 		
 		"Music":
 			if state == PLAYING:
-				if gui.music:
+				if gui.music > MIN_AUDIO_LEVEL:
+					print("Music changed. Level: %d" % gui.music)
 					_music(PLAY)
 				else:
 					_music(STOP)
 		
 		"Sound":
 			# copy gui.sound value to data
-			print("Changed sound setting")
+			if gui.sound > MIN_AUDIO_LEVEL:
+				print("Sound changed. Level: %d" % gui.sound)
+			else:
+				print("Sound off")
 		
 		"About":
 			gui.set_button_state("About", DISABLED)
@@ -59,9 +64,11 @@ func _game_over():
 	print("Game stopped")
 
 func _music(action):
-	if gui.music and action == PLAY:
-		$MusicPlayer.play(music_position)
-		print("Music started")
+	if action == PLAY:
+		$MusicPlayer.volume_db = gui.music
+		if !$MusicPlayer.is_playing():
+			$MusicPlayer.play(music_position)
+		print("Music changed")
 	else:
 		music_position = $MusicPlayer.get_playback_position()
 		$MusicPlayer.stop()
