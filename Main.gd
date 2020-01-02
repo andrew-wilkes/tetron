@@ -4,7 +4,6 @@ enum { STOPPED, PLAYING, PAUSED, STOP, PLAY, PAUSE }
 
 const DISABLED = true
 const ENABLED = false
-const MIN_AUDIO_LEVEL = -24
 
 var gui
 var state = STOPPED
@@ -14,7 +13,8 @@ func _ready():
 	gui = $GUI
 	gui.connect("button_pressed", self, "_button_pressed")
 	gui.set_button_states(ENABLED)
-	
+
+
 func _button_pressed(button_name):
 	match button_name:
 		"NewGame":
@@ -27,15 +27,18 @@ func _button_pressed(button_name):
 			if state == PLAYING:
 				gui.set_button_text("Pause", "Resume")
 				state = PAUSED
-				_music(PAUSE)
+				if _music_is_on():
+					_music(PAUSE)
 			else:
 				gui.set_button_text("Pause", "Pause")
 				state = PLAYING
-				_music(PLAY)
+				if _music_is_on():
+					_music(PLAY)
 		
 		"Music":
+			# copy gui.music value to data
 			if state == PLAYING:
-				if gui.music > MIN_AUDIO_LEVEL:
+				if _music_is_on():
 					print("Music changed. Level: %d" % gui.music)
 					_music(PLAY)
 				else:
@@ -43,7 +46,7 @@ func _button_pressed(button_name):
 		
 		"Sound":
 			# copy gui.sound value to data
-			if gui.sound > MIN_AUDIO_LEVEL:
+			if _sound_is_on():
 				print("Sound changed. Level: %d" % gui.sound)
 			else:
 				print("Sound off")
@@ -51,17 +54,22 @@ func _button_pressed(button_name):
 		"About":
 			gui.set_button_state("About", DISABLED)
 
+
 func _start_game():
 	print("Game playing")
 	state = PLAYING
 	music_position = 0.0
-	_music(PLAY)
+	if _music_is_on():
+		_music(PLAY)
+
 
 func _game_over():
 	gui.set_button_states(ENABLED)
-	_music(STOP)
+	if _music_is_on():
+		_music(STOP)
 	state = STOPPED
 	print("Game stopped")
+
 
 func _music(action):
 	if action == PLAY:
@@ -73,3 +81,11 @@ func _music(action):
 		music_position = $MusicPlayer.get_playback_position()
 		$MusicPlayer.stop()
 		print("Music stopped")
+
+
+func _music_is_on():
+	return gui.music > gui.min_vol
+
+
+func _sound_is_on():
+	return gui.sound > gui.min_vol

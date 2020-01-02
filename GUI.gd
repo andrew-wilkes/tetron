@@ -5,6 +5,7 @@ var next
 
 var music = 0
 var sound = 0
+var min_vol
 
 const CELL_BG1 = Color(.1, .1, .1)
 const CELL_BG2 = Color(0)
@@ -14,6 +15,8 @@ signal button_pressed(button_name)
 func _ready():
 	grid = find_node("Grid")
 	next = find_node("Next")
+	min_vol = find_node("Music").get_min()
+	find_node("Sound").set_min(min_vol)
 	add_cells(grid, 200)
 	clear_cells(grid, CELL_BG1)
 	clear_cells(next, CELL_BG2)
