@@ -1,4 +1,4 @@
-extends Node2D
+extends CenterContainer
 
 enum { STOPPED, PLAYING, PAUSED, STOP, PLAY, PAUSE }
 
