@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Test.gd" type="Script" id=1]
+[ext_resource path="res://Main.tscn" type="PackedScene" id=2]
 
 [node name="Test" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+
+[node name="Main" parent="." instance=ExtResource( 2 )]
+margin_top = 110.0
+margin_bottom = 110.0
 
 [node name="Shape" type="Label" parent="."]
 margin_left = 190.0
@@ -39,6 +44,39 @@ margin_top = 116.0
 margin_right = 126.0
 margin_bottom = 136.0
 text = "Rotate right"
+
+[node name="AddShapeToGrid" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 180.0
+margin_right = 149.0
+margin_bottom = 200.0
+text = "Add Shape To Grid"
+
+[node name="RemoveShapeFromGrid" type="Button" parent="."]
+margin_left = 160.0
+margin_top = 180.0
+margin_right = 334.0
+margin_bottom = 200.0
+text = "Remove Shape From Grid"
+
+[node name="Lock" type="Button" parent="."]
+margin_left = 350.0
+margin_top = 180.0
+margin_right = 391.0
+margin_bottom = 200.0
+text = "Lock"
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 410.0
+margin_top = 178.0
+margin_right = 484.0
+margin_bottom = 202.0
+min_value = -10.0
+max_value = 210.0
+value = 35.0
 [connection signal="button_down" from="PickShape" to="." method="_on_PickShape_button_down"]
 [connection signal="button_down" from="RotateLeft" to="." method="_on_RotateLeft_button_down"]
 [connection signal="button_down" from="RotateRight" to="." method="_on_RotateRight_button_down"]
+[connection signal="button_down" from="AddShapeToGrid" to="." method="_on_AddShapeToGrid_button_down"]
+[connection signal="button_down" from="RemoveShapeFromGrid" to="." method="_on_RemoveShapeFromGrid_button_down"]
+[connection signal="button_down" from="Lock" to="." method="_on_Lock_button_down"]

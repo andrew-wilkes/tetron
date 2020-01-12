@@ -27,3 +27,20 @@ func _show_grid():
 			else:
 				$Grid.text += "_ "
 		$Grid.text += "\n"
+
+var m
+
+func _on_AddShapeToGrid_button_down():
+	m = $Main
+	m.clear_grid()
+	m.shape = Shapes.get_shape()
+	m.pos = int($SpinBox.value)
+	m.add_shape_to_grid()
+
+
+func _on_RemoveShapeFromGrid_button_down():
+	m.remove_shape_from_grid()
+
+
+func _on_Lock_button_down():
+	m.lock_shape_to_grid()

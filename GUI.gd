@@ -15,8 +15,7 @@ func _ready():
 	min_vol = find_node("Music").get_min()
 	find_node("Sound").set_min(min_vol)
 	add_cells(grid, 200)
-	clear_cells(grid)
-	clear_cells(next)
+	clear_all_cells()
 
 
 func add_cells(node, n):
@@ -24,6 +23,11 @@ func add_cells(node, n):
 	while num_cells < n:
 		node.add_child(node.get_child(0).duplicate())
 		num_cells += 1
+
+
+func clear_all_cells():
+	clear_cells(grid)
+	clear_cells(next)
 
 
 func clear_cells(node):
