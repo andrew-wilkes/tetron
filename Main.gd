@@ -1,6 +1,7 @@
 extends CenterContainer
 
 enum { STOPPED, PLAYING, PAUSED, STOP, PLAY, PAUSE }
+enum { LEFT, RIGHT }
 
 const DISABLED = true
 const ENABLED = false
@@ -26,6 +27,32 @@ func clear_grid():
 	for i in grid.size():
 		grid[i] = false
 	gui.clear_all_cells()
+
+
+func move_shape(new_pos, dir = null):
+	remove_shape_from_grid()
+	# Rotate shape and store undo direction
+	dir = rotate(dir)
+	# If we can place the shape then update the position, else undo rotation
+	var ok = place_shape(new_pos)
+	if ok:
+		pos = new_pos
+	else:
+		rotate(dir)
+	add_shape_to_grid()
+	return ok
+
+
+# warning-ignore:unused_argument
+func rotate(dir):
+	match dir:
+		LEFT:
+			shape.rotate_left()
+			dir = RIGHT
+		RIGHT:
+			shape.rotate_right()
+			dir = LEFT
+	return dir
 
 
 func add_shape_to_grid():
