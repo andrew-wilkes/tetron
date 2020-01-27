@@ -10,6 +10,8 @@ const START_POS = 5
 const END_POS =  25
 const TICK_SPEED = 1.0
 const FAST_MULTIPLE = 10
+const WAIT_TIME = 0.15
+const REPEAT_DELAY = 0.05
 
 var gui
 var state = STOPPED
@@ -110,11 +112,13 @@ func _button_pressed(button_name):
 			if state == PLAYING:
 				gui.set_button_text("Pause", "Resume")
 				state = PAUSED
+				pause() # Also, set pause mode of GUI to Process
 				if _music_is_on():
 					_music(PAUSE)
 			else:
 				gui.set_button_text("Pause", "Pause")
 				state = PLAYING
+				pause(false)
 				if _music_is_on():
 					_music(PLAY)
 		
@@ -145,6 +149,7 @@ func _start_game():
 	if _music_is_on():
 		_music(PLAY)
 	clear_grid()
+	gui.reset_stats(gui.high_score)
 	new_shape()
 
 
@@ -159,6 +164,39 @@ func new_shape():
 	add_shape_to_grid()
 	normal_drop()
 	level_up()
+
+
+func _input(event):
+	if state == PLAYING:
+		if event.is_action_pressed("ui_page_up"):
+			increase_level()
+		if event.is_action_pressed("ui_down"):
+			bonus = 2
+			soft_drop()
+		if event.is_action_released("ui_down"):
+			bonus = 0
+			normal_drop()
+		if event.is_action_pressed("ui_accept"):
+			hard_drop()
+		if event.is_action_pressed("ui_left"):
+			move_left()
+			$LeftTimer.start(WAIT_TIME)
+		if event.is_action_released("ui_left"):
+			$LeftTimer.stop()
+		if event.is_action_pressed("ui_right"):
+			move_right()
+			$RightTimer.start(WAIT_TIME)
+		if event.is_action_released("ui_right"):
+			$RightTimer.stop()
+		if event.is_action_pressed("ui_up"):
+			if event.shift:
+				move_shape(pos, ROTATE_RIGHT)
+			else:
+				move_shape(pos, ROTATE_LEFT)
+		if event.is_action_pressed("ui_cancel"):
+			_game_over()
+		if event is InputEventKey:
+			get_tree().set_input_as_handled()
 
 
 func level_up():
@@ -295,6 +333,17 @@ func remove_rows(i, rows):
 			i -= 1
 			to -= 1
 
+
 func pause(value = true):
 	get_tree().paused = value
 
+
+
+func _on_LeftTimer_timeout():
+	$LeftTimer.wait_time = REPEAT_DELAY
+	move_left()
+
+
+func _on_RightTimer_timeout():
+	$RightTimer.wait_time = REPEAT_DELAY
+	move_right()
