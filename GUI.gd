@@ -56,6 +56,16 @@ func _ready():
 	clear_all_cells()
 
 
+func set_next_shape(shape: ShapeData):
+	clear_cells(next)
+	var i = 0
+	for col in shape.coors.size():
+		for row in [0, 1]:
+			if shape.grid[row][col]:
+				next.get_child(i).modulate = shape.color
+			i += 1
+
+
 func add_cells(node, n):
 	var num_cells = node.get_child_count()
 	while num_cells < n:

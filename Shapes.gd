@@ -29,9 +29,9 @@ func _ready():
 		# Remove the zero coordinate for even-sized grids
 		if size % 2 == 0:
 			data.coors.remove(s2)
-		print(data.coors) # For testing purposes
+		#print(data.coors) # For testing purposes
 		data.grid = _get_grid(size, shape.get_children())
-		_shapes.append(data) 
+		_shapes.append(data)
 
 
 func _get_grid(n, cells):
