@@ -327,6 +327,7 @@ func remove_rows(i, rows):
 			$SoundPlayer.play()
 		yield(get_tree().create_timer(0.3), "timeout")
 		pause(false)
+		remove_shape_from_grid()
 		# Move cells
 		var to = i + num_cells
 		while i >= 0:
@@ -337,6 +338,7 @@ func remove_rows(i, rows):
 				gui.grid.get_child(i).modulate = Color(0)
 			i -= 1
 			to -= 1
+		add_shape_to_grid()
 
 
 func pause(value = true):
