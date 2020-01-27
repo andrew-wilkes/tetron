@@ -323,6 +323,8 @@ func remove_rows(i, rows):
 		for n in num_cells:
 			gui.grid.get_child(i + n + 1).modulate = Color(0)
 		pause()
+		if _sound_is_on():
+			$SoundPlayer.play()
 		yield(get_tree().create_timer(0.3), "timeout")
 		pause(false)
 		# Move cells
