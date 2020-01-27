@@ -190,6 +190,7 @@ margin_bottom = 16.0
 size_flags_horizontal = 3
 min_value = -24.0
 max_value = 0.0
+ticks_on_borders = true
 
 [node name="HBox2" type="HBoxContainer" parent="Panel/HBoxContainer/Left/VBox"]
 margin_top = 337.0
