@@ -1,7 +1,7 @@
 extends CenterContainer
 
 enum { STOPPED, PLAYING, PAUSED, STOP, PLAY, PAUSE }
-enum { LEFT, RIGHT }
+enum { ROTATE_LEFT, ROTATE_RIGHT }
 
 const DISABLED = true
 const ENABLED = false
@@ -46,12 +46,12 @@ func move_shape(new_pos, dir = null):
 # warning-ignore:unused_argument
 func rotate(dir):
 	match dir:
-		LEFT:
+		ROTATE_LEFT:
 			shape.rotate_left()
-			dir = RIGHT
-		RIGHT:
+			dir = ROTATE_RIGHT
+		ROTATE_RIGHT:
 			shape.rotate_right()
-			dir = LEFT
+			dir = ROTATE_LEFT
 	return dir
 
 
@@ -76,15 +76,15 @@ func place_shape(index, add_tiles = false, lock = false, color = Color(0)):
 		for x in size:
 			if shape.grid[y][x]:
 				var grid_pos = index + (y + offset) * cols + x + offset
-				print(grid_pos)
+				#print(grid_pos)
 				if lock:
 					grid[grid_pos] = true
-				elif grid_pos >= 0:
+				else:
 					var gx = index % cols + x + offset
-					if gx < 0 or gx >= cols or grid_pos >= grid.size() or grid[grid_pos]:
+					if gx < 0 or gx >= cols or grid_pos >= grid.size() or grid_pos >= 0 and grid[grid_pos]:
 						ok = !ok
 						break
-					if add_tiles:
+					if add_tiles and grid_pos >= 0:
 						gui.grid.get_child(grid_pos).modulate = color
 		y += 1
 	return ok

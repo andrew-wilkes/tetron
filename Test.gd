@@ -64,3 +64,4 @@ func _input(event):
 			dir = m.RIGHT
 		if new_pos != m.pos or dir != null:
 			m.move_shape(new_pos, dir)
+			get_tree().set_input_as_handled()

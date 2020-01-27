@@ -8,11 +8,11 @@ var grid: Array
 var coors: Array
 
 func rotate_left():
-	_rotate_grid(1, -1)
+	_rotate_grid(-1, 1)
 
 
 func rotate_right():
-	_rotate_grid(-1, 1)
+	_rotate_grid(1, -1)
 
 
 func _rotate_grid(sign_of_x, sign_of_y):
