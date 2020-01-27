@@ -5,6 +5,11 @@ enum { ROTATE_LEFT, ROTATE_RIGHT }
 
 const DISABLED = true
 const ENABLED = false
+const MAX_LEVEL = 100
+const START_POS = 5
+const END_POS =  25
+const TICK_SPEED = 1.0
+const FAST_MULTIPLE = 10
 
 var gui
 var state = STOPPED
@@ -12,7 +17,9 @@ var music_position = 0.0
 var grid = []
 var cols
 var shape: ShapeData
+var next_shape: ShapeData
 var pos = 0
+var count = 0
 
 func _ready():
 	gui = $GUI
@@ -20,8 +27,7 @@ func _ready():
 	gui.set_button_states(ENABLED)
 	cols = gui.grid.get_columns()
 	gui.reset_stats()
-	for i in range(8):
-		add_to_score(i)
+	randomize()
 
 
 func clear_grid():
@@ -139,9 +145,52 @@ func _start_game():
 	music_position = 0.0
 	if _music_is_on():
 		_music(PLAY)
+	clear_grid()
+	gui.reset_stats(gui.high_score)
+	new_shape()
+
+
+func new_shape():
+	if next_shape:
+		shape = next_shape
+	else:
+		shape = Shapes.get_shape()
+	next_shape = Shapes.get_shape()
+	gui.set_next_shape(next_shape)
+	pos = START_POS
+	add_shape_to_grid()
+	normal_drop()
+	level_up()
+
+
+func level_up():
+	count += 1
+	if count % 10 == 0:
+		increase_level()
+
+
+func increase_level():
+	if gui.level < MAX_LEVEL:
+		gui.level += 1
+		$Ticker.set_wait_time(TICK_SPEED / gui.level)
+
+
+func normal_drop():
+	$Ticker.start(TICK_SPEED / gui.level)
+
+
+func soft_drop():
+	$Ticker.stop()
+	$Ticker.start(TICK_SPEED / gui.level / FAST_MULTIPLE)
+
+
+func hard_drop():
+	$Ticker.stop()
+	$Ticker.start(TICK_SPEED / MAX_LEVEL)
 
 
 func _game_over():
+	$Ticker.stop()
 	gui.set_button_states(ENABLED)
 	if _music_is_on():
 		_music(STOP)
