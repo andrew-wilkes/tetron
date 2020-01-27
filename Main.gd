@@ -12,6 +12,7 @@ const TICK_SPEED = 1.0
 const FAST_MULTIPLE = 10
 const WAIT_TIME = 0.15
 const REPEAT_DELAY = 0.05
+const FILE_NAME = "user://tetron.json"
 
 var gui
 var state = STOPPED
@@ -30,6 +31,7 @@ func _ready():
 	gui.set_button_states(ENABLED)
 	cols = gui.grid.get_columns()
 	gui.reset_stats()
+	load_game()
 	randomize()
 
 
@@ -232,6 +234,7 @@ func _game_over():
 		_music(STOP)
 	state = STOPPED
 	print("Game stopped")
+	save_game()
 
 
 func add_to_score(rows):
@@ -347,3 +350,24 @@ func _on_LeftTimer_timeout():
 func _on_RightTimer_timeout():
 	$RightTimer.wait_time = REPEAT_DELAY
 	move_right()
+
+
+func save_game():
+	var data = {
+		"music": gui.music,
+		"sound": gui.sound,
+		"high_score": gui.high_score
+	}
+	var file = File.new()
+	file.open(FILE_NAME, File.WRITE)
+	file.store_string(to_json(data))
+	file.close()
+
+
+func load_game():
+	var file = File.new()
+	if file.file_exists(FILE_NAME):
+		file.open(FILE_NAME, File.READ)
+		var data = parse_json(file.get_as_text())
+		print(data)
+		gui.settings(data)
