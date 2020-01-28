@@ -136,6 +136,7 @@ func _button_pressed(button_name):
 		"Sound":
 			# copy gui.sound value to data
 			if _sound_is_on():
+				$SoundPlayer.volume_db = gui.sound
 				print("Sound changed. Level: %d" % gui.sound)
 			else:
 				print("Sound off")
