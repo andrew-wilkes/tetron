@@ -230,6 +230,8 @@ func hard_drop():
 
 func _game_over():
 	$Ticker.stop()
+	$LeftTimer.stop()
+	$RightTimer.stop()
 	gui.set_button_states(ENABLED)
 	if _music_is_on():
 		_music(STOP)
