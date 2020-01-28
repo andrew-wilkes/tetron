@@ -235,6 +235,8 @@ func _game_over():
 	gui.set_button_states(ENABLED)
 	if _music_is_on():
 		_music(STOP)
+	if _sound_is_on():
+		$SoundPlayer.play()
 	state = STOPPED
 	print("Game stopped")
 	save_game()
