@@ -297,47 +297,51 @@ func _on_Ticker_timeout():
 func check_rows():
 	var i = grid.size() - 1
 	var x = 0
-	var rows = 0
+	var row_number = grid.size() / cols - 1
+	var rows = []
 	while i >= 0:
 		if grid[i]:
 			x += 1
 			i -= 1
 			if x == cols: # complete row found
-				rows += 1
+				rows.append(row_number)
 				x = 0
+				row_number -= 1
 		else:
 			# empty cell found
 			i += x # set i to right-most column
 			x = 0
-			if rows > 0:
-				remove_rows(i, rows)
-			rows = 0
 			i -= cols # move i to next row
+			row_number -= 1
+	if rows.empty() == false:
+		remove_rows(rows)
 
 
-func remove_rows(i, rows):
-		add_to_score(rows)
-		print("Rows: %d" % rows)
-		var num_cells = rows * cols
-		# Hide cells
-		for n in num_cells:
-			gui.grid.get_child(i + n + 1).modulate = Color(0)
+func remove_rows(rows):
+		var rows_moved = 0
+		add_to_score(rows.size())
 		pause()
 		if _sound_is_on():
 			$SoundPlayer.play()
 		yield(get_tree().create_timer(0.3), "timeout")
 		pause(false)
 		remove_shape_from_grid()
-		# Move cells
-		var to = i + num_cells
-		while i >= 0:
-			grid[to] = grid[i]
-			gui.grid.get_child(to).modulate = gui.grid.get_child(i).modulate
-			if i == 0: # Clear the top row
-				grid[i] = false
-				gui.grid.get_child(i).modulate = Color(0)
-			i -= 1
-			to -= 1
+		for row_count in rows.size():	
+			# Hide cells
+			for n in cols:
+				gui.grid.get_child((rows[row_count] + rows_moved) * cols + n).modulate = Color(0)
+			# Move cells
+			var to = (rows[row_count] + rows_moved) * cols + cols - 1
+			var from = to - cols 
+			while from >= 0:
+				grid[to] = grid[from]
+				gui.grid.get_child(to).modulate = gui.grid.get_child(from).modulate
+				if from == 0: # Clear the top row
+					grid[from] = false
+					gui.grid.get_child(from).modulate = Color(0)
+				from -= 1
+				to -= 1
+			rows_moved += 1
 		add_shape_to_grid()
 
 
