@@ -136,6 +136,7 @@ func _button_pressed(button_name):
 		"Sound":
 			# copy gui.sound value to data
 			if _sound_is_on():
+				$SoundPlayer.volume_db = gui.sound
 				print("Sound changed. Level: %d" % gui.sound)
 			else:
 				print("Sound off")
@@ -229,9 +230,13 @@ func hard_drop():
 
 func _game_over():
 	$Ticker.stop()
+	$LeftTimer.stop()
+	$RightTimer.stop()
 	gui.set_button_states(ENABLED)
 	if _music_is_on():
 		_music(STOP)
+	if _sound_is_on():
+		$SoundPlayer.play()
 	state = STOPPED
 	print("Game stopped")
 	save_game()
