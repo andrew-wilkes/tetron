@@ -1,5 +1,5 @@
 # Tetron
-A Tetris clone being made using the [Godot Game Engine](https://godotengine.org/).
+A Tetris clone made using the [Godot Game Engine](https://godotengine.org/).
 The commits follow the progress of a tutorial series that I created.
 
 ![Tetron Game](docs/tetron.jpg)
